@@ -1,4 +1,4 @@
-package com.kindsonthegenius.fleetapp_v2.parameters.models;
+package com.example.jambo.parameters.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

@@ -1,4 +1,4 @@
-package com.kindsonthegenius.fleetapp_v2.hr.models;
+package com.example.jambo.hr.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

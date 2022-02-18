@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
 <body>
-$END$
+
+<div layout:fragment="content">
+
+    <!--Content of the page-->
+    <div class="row">
+        <div class="col-lg-4">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class ="card">
+                        <div class ="card-body">
+                            <h5 class="card-title"><h3><b>Employees</b></h3></h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="/employees" class="btn btn-primary">Manage Employees</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-4">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class ="card">
+                        <div class ="card-body">
+                            <h5 class="card-title"><h3><b>Job Roles</b></h3></h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="/job-roles" class="btn btn-primary">Job Roles</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-4">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class ="card">
+                        <div class ="card-body">
+                            <h5 class="card-title"><h3><b>Departments</b></h3></h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="/departments" class="btn btn-primary">Manage Depertments</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class ="card">
+                        <div class ="card-body">
+                            <h5 class="card-title"><h3><b>Employee Types</b></h3></h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="/employee-types" class="btn btn-primary">Manage Employee Types</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-4">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class ="card">
+                        <div class ="card-body">
+                            <h5 class="card-title"><h3><b>Employees Status</b></h3></h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="/employee-status" class="btn btn-primary">Manage Status</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -1,7 +1,7 @@
-package com.kindsonthegenius.fleetapp_v2.hr.models;
+package com.example.jambo.hr.models;
 
-import com.kindsonthegenius.fleetapp_v2.parameters.models.Country;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.State;
+import com.example.jambo.parameters.models.Country;
+import com.example.jambo.parameters.models.State;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

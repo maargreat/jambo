@@ -1,8 +1,9 @@
-package com.kindsonthegenius.fleetapp_v2.hr.models;
+package com.example.jambo.hr.models;
 
+import com.example.jambo.parameters.models.CommonObject;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.kindsonthegenius.fleetapp_v2.parameters.models.CommonObject;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
