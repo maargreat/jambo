@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+
+    <section class="wrapper">
+        <div class ="row">
+            <div class ="col-lg-12">
+              <h3 class ="page-header"><i class ="fa fa-bars">Parameters</i></h3>
+              <ol class="breadcrumb">
+                <li><i class ="fa fa-home"></i><a href="/parameters">Parameters Home</a></li>
+                <li><i class ="fa fa-bars"></i><a href="/suppliers">Suppliers List</a></li>
+                <li><i class ="fa fa-square-o"></i>Suppliers Add</li>
+            </ol>
+        </div>
+        </div>
+
+
+ <div class ="container" style=" width: 70%">
+ <div class="row">
+            <form class="form-horizontal " th:action="@{/suppliers}" method="post">
+            <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add New Supplier Record
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+
+                           <div class="form-group row">
+                                <label for="txtIdAdd" class="control-label col-sm-4">ID</label>
+                                <div class="col-sm-6">
+                                    <input name="id" id="txtIdAdd" type="text" placeholder="id" class="form-control" disabled>
+                                </div>
+                           </div>
+                           <div class="form-group row">
+                                    <label for="txtNameAdd" class="control-label col-sm-4">Name</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtNameAdd" type="text" placeholder="name" class="form-control">
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                    <label for="txtEmailAdd" class="control-label col-sm-4">Email</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtEmailAdd" type="text" placeholder="email" class="form-control">
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                    <label for="txtWebsiteAdd" class="control-label col-sm-4">website:</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtWebsiteAdd" type="text" placeholder="website" class="form-control">
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                    <label for="txtPhoneAdd" class="control-label col-sm-4">Phone</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtPhoneAdd" type="text" placeholder="phone" class="form-control">
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                    <label for="txtMobileAdd" class="control-label col-sm-4">Mobile</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtMobileAdd" type="text" placeholder="mobile" class="form-control">
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                    <label for="txtAddressAdd" class="control-label col-sm-4">Address</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtAddressAdd" type="text" placeholder="address" class="form-control">
+                                    </div>
+                                </div>
+
+                           <div class="form-group row">
+                                    <label for="txtCityAdd" class="control-label col-sm-4">City</label>
+                                    <div class="col-sm-6">
+                                        <input name="id" id="txtCityAdd" type="text" placeholder="city" class="form-control">
+                                    </div>
+                                </div>
+
+                          <div class="col-lg-12">
+
+                            <div class="form-group row">
+                                <label for="ddlCountryAdd" class="col-form-label col-sm-4">Country: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                        <option>-SELECT-</option>
+                                        <option th:each="country: ${countries}"
+                                                th:value="${country.id}"
+                                                th:text="${country.description}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ddlStateAdd" class="col-form-label col-sm-4">State: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlStateAdd" name="stateid">
+                                        <option>-SELECT-</option>
+                                        <option th:each="state: ${states}"
+                                                th:value="${state.id}"
+                                                th:text="${state.name}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                           </div>
+                            </div>
+                          </div>
+                    </section>
+            </div>
+            </form>
+ </div>
+ </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                            <button type="submit"  class="btn btn-success">Save</button>
+                            <a href="/suppliers"  class="btn btn-warning">Exit</a>
+                        </div>
+                    </section>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</div>
+
+<th:block layout:fragment="script">
+    <script language="JavaScript">
+        $('document').ready(function () { // Line 1
+            $('#ddlCountryAdd').on('change',function () { // Line 2
+                console.log("I got here!")
+                $('#ddlStateAdd').empty().append('<option value="null">-SELECT-</option>'); // Line 3
+                var countryid = $(this).val(); //Line 4
+                var href = "http://localhost:8080/parameters/country/" + countryid //Line 5
+                $.get(href, function (country, status) { // Line 6
+                    var states = country.states; // Line 7
+                    for (var i = 0; i <= states.length-1; i++) { // Line 8
+                        $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>'); // Line 9
+                    }
+                })
+            })
+        })
+    </script>
+</th:block>
+
+
+</body>
+</html>

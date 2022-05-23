@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+
+    <section class="wrapper">
+        <div class ="row">
+            <div class ="col-lg-12">
+                <h3 class ="page-header"><i class ="fa fa-bars">Parameters</i></h3>
+                <ol class="breadcrumb">
+                    <li><i class ="fa fa-home"></i><a href="/parameters">Parameters Home</a></li>
+                    <li><i class ="fa fa-bars"></i><a href="/parameters/suppliers">Supplier List</a></li>
+                    <li><i class ="fa fa-square-o"></i>Supplier Edit</li>
+                </ol>
+            </div>
+        </div>
+
+    <div class ="container" style=" width: 80%">
+        <div class="row">
+            <form class="form-horizontal " th:action="@{'/supplier/update/'+${supplier.id}}"method="put">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add New Supplier Record
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">ID</label>
+                                <div class="col-sm-6">
+                                    <input name="id" th:value="${supplier.id}" type="text" size="16" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Name</label>
+                                <div class="col-sm-6">
+                                    <input name="name" th:value="${supplier.name}"  class="form-control" size="16" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Email</label>
+                                <div class="col-sm-5">
+                                    <input name="email" th:value="${supplier.email}"  type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">website</label>
+                                <div class="col-sm-5">
+                                    <input name="website" th:value="${supplier.website}"  type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Address</label>
+                                <div class="col-sm-5">
+                                    <input name="address" th:value="${supplier.address}"  type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">City</label>
+                                <div class="col-sm-5">
+                                    <input name="city" th:value="${supplier.city}"  type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Mobile</label>
+                                <div class="col-sm-5">
+                                    <input name="mobile" th:value="${supplier.mobile}"  type="text"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Phone</label>
+                                <div class="col-sm-5">
+                                    <input name="phone" th:value="${supplier.phonr}"  type="text"  class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Country: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control"  name="countryid">
+                                        <option>-SELECT-</option>
+                                        <option th:each="country : ${countries}"
+                                                th:value="${country.id}"
+                                                th:selected="${country.id}==${state.countryid} ? True: False:"
+                                                th:text="${country.description}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="ddlStateAdd" class="col-form-label col-sm-4">State: </label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlStateAdd" name="stateid">
+                                        <option>-SELECT-</option>
+                                        <option th:each="state: ${states}"
+                                                th:value="${state.id}"
+                                                th:text="${state.name}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                         <!--   <div class="form-group">
+                                <label class="control-label col-sm-4"> Country</label>
+                                <div class="col-sm-5">
+                                    <input name="countryId" th:value="${location.country}"   type="text" class=" form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">State</label>
+                                <div class="col-sm-5">
+                                    <input name="code" th:value="${location.state}"  type="text" class="cp2 form-control">
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                            <button type="submit"  class="btn btn-success">Save</button>
+                            <a href="/supplier"  class="btn btn-warning">Exit</a>
+                        </div>
+                    </section>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</div>
+
+
+</body>
+</html>

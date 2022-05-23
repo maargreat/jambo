@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+
+    <section class="wrapper">
+        <div class ="row">
+            <div class ="col-lg-12">
+                <h3 class ="page-header"><i class ="fa fa-bars">Parameters</i></h3>
+                <ol class="breadcrumb">
+                    <li><i class ="fa fa-home"></i><a href="/parameters">Parameters Home</a></li>
+                    <li><i class ="fa fa-bars"></i><a href="/parameters/countries">Location List</a></li>
+                    <li><i class ="fa fa-square-o"></i>Location Details</li>
+                </ol>
+            </div>
+        </div>
+
+    <div class ="container" style=" width: 80%">
+        <div class="row">
+            <form class="form-horizontal " th:action="@{'/parameters/locations'+${location.id}}"method="put">
+
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add New Location Record
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">ID</label>
+                                <div class="col-sm-6">
+                                    <input name="id" th:value="${location.id}" readonly type="text" size="16" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description</label>
+                                <div class="col-sm-6">
+                                    <input name="description" th:value="${location.description}" readonly class="form-control" size="16" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">City</label>
+                                <div class="col-sm-5">
+                                    <input name="city" th:value="${location.city}" readonly type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Address</label>
+                                <div class="col-sm-5">
+                                    <input name="address" th:value="${location.address}" readonly type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4"> Country</label>
+                                <div class="col-sm-6">
+                                    <input name="country" th:value="${location.country}"   readonly  type="text" class=" form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">State</label>
+                                <div class="col-sm-5">
+                                    <input name="state" th:value="${location.state}"  readonly  type="text" class="cp2 form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Details</label>
+                                <div class="col-sm-5">
+                                    <input name="details" th:value="${location.details}" readonly   type="text"  class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-body">
+                            <button type="submit"  class="btn btn-success">Save</button>
+                            <a href="/locations"  class="btn btn-warning">Exit</a>
+                        </div>
+                    </section>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</div>
+
+
+</body>
+</html>

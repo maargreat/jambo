@@ -17,6 +17,19 @@
                         <div class="panel-body">
 
                             <div class="form-group">
+                            <label class="control-label col-sm-4">Country: </label>
+                            <div class="col-sm-6">
+                                <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                    <option>-SELECT-</option>
+                                    <option th:each="country : ${countries}"
+                                            th:value="${country.id}"
+                                            th:text="${country.description}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                            <div class="form-group">
                                 <label class="control-label col-sm-4">Name</label>
                                 <div class="col-sm-6">
                                     <input name="name" type="text" size="16" class="form-control">
@@ -30,13 +43,7 @@
                                     <input name="capital" class="form-control" size="16" type="text">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4"> CountryId</label>
-                                <div class="col-sm-6">
-                                    <input name="countryId"  type="text" class=" form-control" />
 
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-4">Details</label>
 
@@ -67,7 +74,24 @@
         </div>
     </div>
 </div>
-
+<th:block layout:fragment="script">
+    <script language="JavaScript">
+        $('document').ready(function () { // Line 1
+            $('#ddlCountryAdd').on('change',function () { // Line 2
+                console.log("I got here!")
+                $('#ddlStateAdd').empty().append('<option value="null">-SELECT-</option>'); // Line 3
+                var countryid = $(this).val(); //Line 4
+                var href = "http://localhost:8080/parameters/country/" + countryid //Line 5
+                $.get(href, function (country, status) { // Line 6
+                    var states = country.states; // Line 7
+                    for (var i = 0; i <= states.length-1; i++) { // Line 8
+                        $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>'); // Line 9
+                    }
+                })
+            })
+        })
+    </script>
+</th:block>
 
 </body>
 </html>

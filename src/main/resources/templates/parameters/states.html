@@ -8,6 +8,17 @@
 <body>
     <div layout:fragment="content">
     <!--Content of the page-->
+
+        <div class ="row">
+            <div class ="col-lg-12">
+                <h3 class ="page-header"><i class ="fa fa-bars">Parameters</i></h3>
+                <ol class="breadcrumb">
+                    <li><i class ="fa fa-home"></i><a href="/parameters">Parameters Home</a></li>
+                    <li><i class ="fa fa-bars"></i><a href="/states">State</a></li>
+                    <li><i class ="fa fa-square-o"></i>State Add</li>
+                </ol>
+            </div>
+        </div>
     <div class="row">
     </div>
     <!-- Inline form-->
@@ -19,7 +30,7 @@
 
                     <div class="panel-body">
                         <a href="/stateAdd"  class="btn btn-primary">
-                            New State
+                           Add New State
                         </a>
                     </div>
                 </section>
@@ -46,7 +57,8 @@
                         <td th:text="${state.details}"></td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-primary" th:href="@{'/stateDetails/'+${state.id}}"><i class="icon_plus_alt2"></i></a>
+                                <a class="btn btn-primary"
+                                   th:href="@{'/stateDetails/'+${state.id}}"><i class="icon_plus_alt2"></i></a>
                                 <a class="btn btn-success"
                                    th:href="@{'/stateEdit/'+${state.id}}"><i class="icon_check_alt2"></i></a>
                                 <a class="btn btn-danger"

@@ -54,7 +54,7 @@
         </div>
 
         <!--logo start-->
-        <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+        <a href="/index" class="logo">Nice <span class="lite">Admin</span></a>
         <!--logo end-->
 
         <div class="nav search-row" id="top_menu">
@@ -316,7 +316,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
                 <li class="active">
-                    <a class="" href="index.html">
+                    <a class="" href="/index">
                         <!-- index page is not using the layout page the way the rest are.it is independent, so it can't derive from layout-->
                         <i class="icon_house_alt"></i>
                         <span>Dashboard</span>
@@ -383,10 +383,32 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" href="/parameters">Parameters Home</a></li>
-                        <li><a class="" href="/countries">Country List</a></li>
-                        <li><a class="" href="/states">State List</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_desktop"></i>
+                        <span>Reports</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="/reports">Reports Home</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_desktop"></i>
+                        <span>Security</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="/security">Security Home</a></li>
+                    </ul>
+                </li>
+
+
+
 
             </ul>
             <!-- sidebar menu end-->
@@ -397,23 +419,18 @@
     <!--main content start-->
 
 
-    <section id="main-content">
+
+
+    <!--old maincont-->
+   <section id="main-content">
         <section class="wrapper">
 
-            <div class ="row">
-                <div class ="col-lg-12">
-                    <h3 class ="page-header"><i class ="fa fa-laptop"></i></h3>
-                    <ol class="breadcrumb">
-                        <li><i class ="fa fa-home"></i><a href="index.html">Home</a></li>
-                        <li><i class ="fa fa-laptop"></i>Dashboard</li>
-                    </ol>
-                </div>
-            </div>
+
 
             <div layout:fragment="content">
-                <p>Changing contents</p>
+                <p></p>
             </div>
-            <!--overview start-->
+           <!-- overview start-->
 
             <!-- Today status end -->
             <!-- statics end -->
@@ -438,7 +455,7 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
     <!--main content end-->
 </section>
 <!-- container section start -->

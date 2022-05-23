@@ -5,9 +5,7 @@ import com.example.jambo.parameters.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class StateController {
     public String getAll(Model model){
         List<State> states = stateService.getAll();
         model.addAttribute("states", states);
-        return "parameters/stateList";
+        return "parameters/states";
     }
 
     @GetMapping("/stateAdd")
@@ -29,13 +27,35 @@ public class StateController {
         return "parameters/stateAdd";
     }
 
+    @GetMapping("/stateEdit/{id}")
+    public String editState(@PathVariable Integer id, Model model)
+    {
+        State state =stateService.getById(id);
+        model.addAttribute("state", state);
+        return "parameters/stateEdit";
+    }
+
     @PostMapping("/states")
     public String save(State state){
         stateService.save(state);
-        return "redirect:/states";
+        return "redirect:/parameters/states";
     }
 
 
+    @GetMapping("/stateDetails/{id}")
+    public String detailsState(@PathVariable Integer id, Model model)
+    {
+        State state =stateService.getById(id);
+        model.addAttribute("state", state);
+        return "parameters/stateDetails";
+
+    }
+    @RequestMapping(value ="/states/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String update( State state)
+    {
+        stateService.save(state);
+        return "redirect:parameters/states";
+    }
 
 
 }

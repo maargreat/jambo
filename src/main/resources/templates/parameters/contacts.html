@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+
+
+<body>
+    <div layout:fragment="content">
+    <!--Content of the page-->
+
+        <section class="wrapper">
+            <div class ="row">
+                <div class ="col-lg-12">
+                    <h3 class ="page-header"><i class ="fa fa-bars">Parameters</i></h3>
+                    <ol class="breadcrumb">
+                        <li><i class ="fa fa-home"></i><a href="/parameters">Parameters Home</a></li>
+                        <li><i class ="fa fa-bars"></i><a href="/contact">Contacts</a></li>
+                        <li><i class ="fa fa-square-o"></i>Contacts Add</li>
+                    </ol>
+                </div>
+            </div>
+
+    <div class="row">
+    </div>
+    <!-- Inline form-->
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <section class="panel">
+
+                    <div class="panel-body">
+                        <a href="/contactAdd"  class="btn btn-primary">
+                            Add New Contact
+                        </a>
+                    </div>
+                </section>
+
+                <section class="panel">
+                <header class="panel-heading">
+                      Contact List
+                </header>
+                <table class="table table-striped table-advance table-hover">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th><i class="icon_calendar"></i> FullName</th>
+                        <th><i class="icon_pin_alt"></i> Phone </th>
+                        <th><i class="icon_mobile"></i> Email</th>
+                        <th><i class="icon_cogs"></i> Mobile </th>
+                        <th><i class="icon_cogs"></i> Remarks </th>
+                        <th><i class="icon_cogs"></i> Action </th>
+
+                    </tr>
+                    <tr th:each="contact: ${contacts}">
+                        <td i class=" fa fa-user"></i></td>
+                        <td th:text="${contact.firstname} +' '+${contact.lastname}"></td>
+                        <td th:text="${contact.phone}"></td>
+                        <td th:text="${contact.email}"></td>
+                        <td th:text="${contact.mobile}"></td>
+                        <td th:text="${contact.remarks}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-primary"
+                                   th:href="@{'/contactDetails/'+${contact.id}}">
+                                    <i class="icon_plus_alt2"></i></a>
+                                <a class="btn btn-success"
+                                   th:href="@{'/contactEdit/'+${contact.id}}">
+                                    <i class="icon_check_alt2"></i></a>
+                                <a class="btn btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this record?')"
+                                   th:href="@{'/contacts/delete/'+${contact.id}}">
+                                    <i class="icon_close_alt2"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+        </section>
+    </div>
+
+        </div>
+</body>
+</html>

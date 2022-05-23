@@ -16,9 +16,9 @@ public class CountryService {
     public List<Country> getAll(){
         return countryRepository.findAll();
     }
+    public List<Country> findAll() { return countryRepository.findAll();    }
 
-    public void save (Country country){
-        countryRepository.save(country); }
+    public void save (Country country){ countryRepository.save(country); }
 
     public void delete (Integer id){
         countryRepository.deleteById(id);

@@ -16,9 +16,8 @@ public class CountryController {
     private CountryService countryService;
 
     @GetMapping("/countries")
-    public String getAll(Model model)
-    {
-         List<Country> countries = countryService.getAll();
+    public String getAll(Model model){
+        List<Country> countries = countryService.getAll();
          model.addAttribute("countries", countries);
          return "parameters/countryList";
     }
@@ -34,7 +33,7 @@ public class CountryController {
     {
         Country country =countryService.getById(id);
         model.addAttribute("country", country);
-        return "parameters/countryEdit";
+        return "/parameters/countryEdit";
     }
 
     @GetMapping("/countryDetails/{id}")
